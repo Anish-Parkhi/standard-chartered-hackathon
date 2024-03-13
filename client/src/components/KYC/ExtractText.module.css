@@ -1,0 +1,15 @@
+.infoModal {
+  background-color: red;
+  width: 20%;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  padding: 40px;
+}

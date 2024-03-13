@@ -10,7 +10,7 @@ function Home() {
   return (
     <div>
       <div>Home</div>
-      <button onClick={() => navigate('/aadharScan')}>Proceed to E-KYC</button>
+      <button onClick={() => navigate('/alertScreen')}>Proceed to E-KYC</button>
     </div>
   );
 }

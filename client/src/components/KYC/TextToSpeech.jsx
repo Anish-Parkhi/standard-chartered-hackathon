@@ -1,6 +1,9 @@
+import CloseIcon from '@mui/icons-material/Close';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { useEffect, useState } from 'react';
+import styles from './TextToSpeech.module.css';
 
-const TextToSpeech = ({ text }) => {
+const TextToSpeech = ({ text, setAudioModal }) => {
   const [isPaused, setIsPaused] = useState(false);
   const [utterance, setUtterance] = useState(null);
 
@@ -26,20 +29,22 @@ const TextToSpeech = ({ text }) => {
     };
   }, [text]);
 
+  console.log(setAudioModal);
+
   return (
-    <div>
-      <div>Hold the {text} in front of the camera clearly</div>
+    <div className={styles.modalMainContainer}>
       <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          gap: '0.5rem',
-          marginTop: '1.4rem',
-          justifyContent: 'center',
+        onClick={() => {
+          setAudioModal(false);
         }}
+        className={styles.buttonContainer}
       >
-        <button onClick={handlePlay}>Play</button>
+        <CloseIcon sx={{ alignSelf: 'flex-end', marginLeft: 'auto' }} />
       </div>
+      <div className={styles.textContainer}>{text}</div>
+      <button className={styles.speakerButtonContainer} onClick={handlePlay}>
+        <VolumeUpIcon sx={{ color: 'white', fontSize: '2rem' }} />
+      </button>
     </div>
   );
 };

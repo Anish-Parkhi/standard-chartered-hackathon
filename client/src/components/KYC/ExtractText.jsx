@@ -5,7 +5,7 @@ import Webcam from 'react-webcam';
 import Tesseract from 'tesseract.js';
 import UserDataContext from '../../../utils/userDataContext';
 import TextToSpeech from './TextToSpeech';
-import customStyles from './modalstyles';
+import customStyles, { infoModalStyles } from './modalstyles';
 
 const ExtractText = ({ documentName, nextScan }) => {
   useEffect(() => {});
@@ -60,11 +60,11 @@ const ExtractText = ({ documentName, nextScan }) => {
     <>
       <Modal
         ariaHideApp={false}
-        style={customStyles}
+        style={infoModalStyles}
         onRequestClose={closeAudioModal}
         isOpen={audioModal}
       >
-        <TextToSpeech text={text} />
+        <TextToSpeech setAudioModal={setAudioModal} text={text} />
       </Modal>
       {imgSrc ? (
         <img src={imgSrc} alt="webcam" />
