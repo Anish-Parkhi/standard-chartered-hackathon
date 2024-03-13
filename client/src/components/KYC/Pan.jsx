@@ -1,13 +1,13 @@
-import ExtractText from "./ExtractText"
+import ExtractText from './ExtractText';
 function Pan() {
   return (
     <div>
-        <div>
-            Pan Card Scan
-        </div>
-        <ExtractText documentName="Pan Card" nextScan='IncomeProofScan' />
+      <div style={{ margin: '0.5rem', fontSize: '2rem', textAlign: 'center' }}>
+        Scan Pan Card
+      </div>
+      <ExtractText documentName="Pan Card" nextScan="IncomeProofScan" />
     </div>
-  )
+  );
 }
 
-export default Pan
+export default Pan;

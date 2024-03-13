@@ -3,8 +3,10 @@ import ExtractText from './ExtractText';
 function Income() {
   return (
     <div>
-      <div>Income proof scan</div>
-      <ExtractText documentName="Income Proof" nextScan='FinalSuccess' />
+      <div style={{ margin: '0.5rem', fontSize: '2rem', textAlign: 'center' }}>
+        Scan Income proof
+      </div>
+      <ExtractText documentName="Income Proof" nextScan="FinalSuccess" />
     </div>
   );
 }

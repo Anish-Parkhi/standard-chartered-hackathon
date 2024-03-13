@@ -2,8 +2,8 @@ import ExtractText from './ExtractText';
 function Aadhar() {
   return (
     <div>
-      <div>Scan Aadhar</div>
-      <ExtractText documentName="Aadhar Card" nextScan='panCardScan' />
+      <div style={{ margin: '0.5rem', fontSize: '2rem', textAlign: 'center' }}>Scan Aadhar</div>
+      <ExtractText documentName="Aadhar Card" nextScan="panCardScan" />
     </div>
   );
 }
