@@ -93,7 +93,7 @@ const ExtractText = ({ documentName, nextScan }) => {
 
       <Modal
         ariaHideApp={false}
-        style={customStyles}
+        style={successModalStyles}
         onRequestClose={closeModal}
         isOpen={open}
       >
