@@ -5,7 +5,11 @@ import Webcam from 'react-webcam';
 import Tesseract from 'tesseract.js';
 import UserDataContext from '../../../utils/userDataContext';
 import TextToSpeech from './TextToSpeech';
-import customStyles, { infoModalStyles } from './modalstyles';
+import customStyles, {
+  infoModalStyles,
+  successModalStyles,
+} from './modalstyles';
+import styles from './ExtractText.module.css';
 
 const ExtractText = ({ documentName, nextScan }) => {
   useEffect(() => {});
@@ -57,7 +61,7 @@ const ExtractText = ({ documentName, nextScan }) => {
   console.log(userInfo);
 
   return (
-    <>
+    <div className={styles.extractTextMainContainer}>
       <Modal
         ariaHideApp={false}
         style={infoModalStyles}
@@ -66,14 +70,27 @@ const ExtractText = ({ documentName, nextScan }) => {
       >
         <TextToSpeech setAudioModal={setAudioModal} text={text} />
       </Modal>
-      {imgSrc ? (
-        <img src={imgSrc} alt="webcam" />
-      ) : (
-        <Webcam ref={cameraRef} height={600} width={600} />
-      )}
-      <button onClick={imgSrc ? reTake : capture}>
+
+      <div className={styles.webCamMainContainer}>
+        {imgSrc ? (
+          <img src={imgSrc} alt="webcam" />
+        ) : (
+          <Webcam
+            className={styles.webCamInnerContainer}
+            ref={cameraRef}
+            height={600}
+            width={600}
+          />
+        )}
+      </div>
+
+      <button
+        className={styles.bottomCaptureButton}
+        onClick={imgSrc ? reTake : capture}
+      >
         Click to {imgSrc ? 'retake' : 'capture'}
       </button>
+
       <Modal
         ariaHideApp={false}
         style={customStyles}
@@ -91,7 +108,12 @@ const ExtractText = ({ documentName, nextScan }) => {
           Retake Picture
         </button>
       </Modal>
-      <Modal ariaHideApp={false} style={customStyles} isOpen={successModal}>
+
+      <Modal
+        ariaHideApp={false}
+        style={successModalStyles}
+        isOpen={successModal}
+      >
         <div style={{ fontSize: '1.8rem' }}>
           {documentName} scanned successfully
         </div>
@@ -99,12 +121,12 @@ const ExtractText = ({ documentName, nextScan }) => {
           onClick={() => {
             navigate(`/${nextScan}`);
           }}
-          style={{ fontSize: '1.2 rem' }}
+          className={styles.successButton}
         >
           Click to proceed to next step
         </button>
       </Modal>
-    </>
+    </div>
   );
 };
 
